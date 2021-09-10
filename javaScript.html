@@ -1,0 +1,92 @@
+<html>
+
+<head>
+<center>
+<body bgcolor="pink">
+<font color="black" >
+<font face="Papyrus">
+<script language="javaScript">
+
+var score = 0; // Global variable
+function guessing()
+{ 
+
+	/* block comment
+	Write the algorithm that would prompt a user to guess a number beween 1 and 10. The program 
+	should tell the user if the guess is too high or too low. If the guess is correct, the program should alert how 
+	many guess the user took. 
+	
+	1. create(declare) three variables: rand (for random number)
+										usersGuess (the guess that the user makes)
+										numOfGuesses (increases by 1 each time the user makes another guess)
+										etc...
+	2. create loop While (attempts!==randomNumber)Compare the user's guess with the generated number.
+	3. Return feedback if the users number is too high or low. 
+	4. Keep track of the number of guesses. 
+	5. If they get it correct, tell them and tell them how many tries it took.
+	*/
+	
+	var userGuess = -1;
+	var numOfGuesses = 0; // camelCase
+	var rand = Math.random()*10 + 1;
+	rand = parseInt(rand);
+
+ while (rand != userGuess)// loop while rand does not = userguess
+ { 
+ userGuess = prompt("Pick a # between 1&10");
+ numOfGuesses++; // add one to var
+	if (userGuess<rand)
+	{
+		alert(userGuess+" was too low, try again");
+	}
+	else if (userGuess>rand)
+	{
+		alert(userGuess+" was too high, try again");
+	}
+	else alert ("That's Right! It took you "+numOfGuesses+" tries to get the correct #.");
+ }
+ }
+ 
+ // user has got the correct answer.
+ 
+// finish it off.
+
+function greeting()
+{ 
+	alert("hello");
+}
+function greeting2()
+{ 
+// var declares a variable. Use var only once per variable.
+//1st time a variable is assigned data is called "initialized"
+	var name = prompt("Type your name");
+	alert("Hello there, "+name);
+	                                     // = is the assignment opperator
+}                                        // This assigns the element on the right to 
+                                         // the element on the left
+function greeting3() 
+{ 
+	var name = confirm("Do you like my site"); 
+	alert(name);
+}
+</script>
+</head>
+
+<body>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<h1> My First JavaScript Page</h1>
+<br/>
+<input type="button" value="Click for my game" onclick="guessing()" />
+<br/><br/>
+<hr/>
+<input type="button" value="Click for message" onclick="greeting()" />
+<hr/>
+<input type="button" value="Click for question" onclick="greeting2()" />
+<hr/>
+<input type="button" value="Click for a confirmation" onclick="greeting3()" />
+<br/>
+<br/>
+Click here to<a href="index.html" target="_blank"> return to my index page.</a>
+</center>
+</body>
+</html>
