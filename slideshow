@@ -1,0 +1,117 @@
+<html
+<head>
+<script language="javaScript">
+var slideCounter=0;
+var counter=0;
+var clipCounter=0;
+var startState = false;
+var clipList = ["sounds/clip1Tracer.oga",
+				"sounds/clip2Reaper.mpeg",
+				"sounds/clip3Widowmaker.oga",
+				"sounds/clip4Pharah.oga",
+				"sounds/clip5Rienhardt.oga",
+				"sounds/clip6Mercy.oga"];
+				
+				
+var picList = [ "images/slideshow/thumbnail.jpg",
+				"images/slideshow/slide1Tracer.jpg",
+				"images/slideshow/slide2Reaper.jpg",
+				"images/slideshow/slide3Widowmaker.jpg",
+				"images/slideshow/slide4Pharah.jpg",
+				"images/slideshow/slide5Rienhardt.jpg",
+				"images/slideshow/slide6Mercy.jpg"];
+				
+
+//on click slides and audio
+function nextPic()
+{ 	
+	slideCounter++;
+	document.getElementById("display").src=picList[slideCounter];
+	document.getElementById("player").src = clipList[clipCounter];
+	document.getElementById("player").play();
+	clipCounter++;
+	clipCarousel(); slideCarousel();
+}
+
+function slideCarousel()
+{
+	if (slideCounter == picList.length-1)
+	{
+		slideCounter = 0; 
+	}
+}
+
+function clipCarousel()
+{ 
+	if (clipCounter==clipList.length)
+	{ 
+		clipCounter= 0;
+	}
+}
+
+//auto play slides
+function run()
+{
+	if (startState == true)
+	{
+		startState = false;
+		document.getElementById("display").src="images/slideshow/slide1Tracer.jpg";
+		document.getElementById("player").src ="sounds/clip1Tracer.oga";
+		document.getElementById("runButton").value="Run Slideshow";
+	}
+	else
+	{
+		startState = true;
+		document.getElementById("runButton").value="Stop Slideshow";
+	}
+	autoSlide();
+}
+
+function autoSlide()
+{
+	if (startState == true)
+	{	
+		slideCounter++;
+		document.getElementById("display").src = picList[slideCounter];
+		document.getElementById("player").src = clipList[clipCounter];
+		document.getElementById("player").play();clipCounter++;
+		slideCarousel(); clipCarousel;
+		var clipTime = clipList[counter].length;
+		timer=setTimeout("autoSlide()", clipTime*1000);
+	}
+	else
+	{	
+		clearTimeout(timer);
+	}
+}
+
+
+function run1()
+{
+ nextPic();
+	var clipTime = clipList[counter].length;
+	alert (clipTime);
+		timer=setTimeout("autoSlide()", clipTime*1000);
+}
+
+</script>
+</head>
+
+<body>
+<center>
+<br/><br/>
+<h1> My Slideshow </h1>
+Click <a href="index.html">here</a> to return to my home page.
+<br/><br/>
+<input type="button" value = "Next Picture" onclick="nextPic()"/>
+<br/>
+<br/>
+<input type="button" id="runButton" value="Run Slideshow" onclick="run1()"/>
+<br/><br/>
+<image src="images/slideshow/thumbnail.jpg" id="display"/> 
+
+<audio src="sounds/clip1Tracer.oga" id="player"></audio>
+</center>
+
+</body>
+</html>
