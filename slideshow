@@ -13,7 +13,7 @@ var clipList = ["sounds/clip1Tracer.oga",
 				"sounds/clip6Mercy.oga"];
 				
 				
-var picList = [ "images/slideshow/thumbnail.jpg",
+var picList = ["images/slideshow/thumbnail.jpg",
 				"images/slideshow/slide1Tracer.jpg",
 				"images/slideshow/slide2Reaper.jpg",
 				"images/slideshow/slide3Widowmaker.jpg",
@@ -23,7 +23,8 @@ var picList = [ "images/slideshow/thumbnail.jpg",
 				
 
 //on click slides and audio
-function nextPic()
+
+function nextSlide()
 { 	
 	slideCounter++;
 	document.getElementById("display").src=picList[slideCounter];
@@ -74,9 +75,11 @@ function autoSlide()
 		slideCounter++;
 		document.getElementById("display").src = picList[slideCounter];
 		document.getElementById("player").src = clipList[clipCounter];
-		document.getElementById("player").play();clipCounter++;
-		slideCarousel(); clipCarousel;
-		var clipTime = clipList[counter].length;
+		document.getElementById("player").play();
+		clipCounter++;
+		slideCarousel();
+		clipCarousel;
+		var clipTime = clipList[counter].duration;
 		timer=setTimeout("autoSlide()", clipTime*1000);
 	}
 	else
@@ -86,13 +89,30 @@ function autoSlide()
 }
 
 
-function run1()
+function run1() //test
 {
- nextPic();
-	var clipTime = clipList[counter].length;
+ 
+	var clipTime = clipList[counter].duration;
 	alert (clipTime);
-		timer=setTimeout("autoSlide()", clipTime*1000);
+	nextSlide();
+	
+	if (startState == true)
+	{
+		startState = false;
+		document.getElementById("display").src="images/slideshow/slide1Tracer.jpg";
+		document.getElementById("player").src ="sounds/clip1Tracer.oga";
+		document.getElementById("runButton").value="Run Slideshow";
+	}
+	else
+	{
+		startState = true;
+		document.getElementById("runButton").value="Stop Slideshow";
+	}
+	autoSlide();
 }
+
+//remember to make slide more efficient, fix thumbnail, and upload images
+//10/4/21
 
 </script>
 </head>
