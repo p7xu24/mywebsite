@@ -113,8 +113,9 @@ function run1() //test
 
 /* 
 
-var clipTime = document.getElementById("player").src=clipList[counter];
+var clipTime = document.getElementById("player").src=clipList[counter]+1;
     alert (clipTime);
+    clipTime = parseInt(clipTime);
 
 remember to...
 1.make slides more efficient
