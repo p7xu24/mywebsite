@@ -111,8 +111,20 @@ function run1() //test
 	autoSlide();
 }
 
-//remember to make slide more efficient, fix thumbnail, and upload images
-//10/4/21
+/* 
+
+var clipTime = document.getElementById("player").src=clipList[counter];
+    alert (clipTime);
+
+remember to...
+1.make slides more efficient
+2.global counter
+3.fix thumbnail
+4.upload images
+
+<!--10/4/21-->
+*/
+
 
 </script>
 </head>
