@@ -113,7 +113,7 @@ function run1() //test
 
 /* 
 
-var clipTime = document.getElementById("player").src=clipList[counter]+1;
+var clipTime = document.getElementById("player").src=clipList[counter];
     alert (clipTime);
     clipTime = Math.floor(clipTime+1);
 
