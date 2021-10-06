@@ -1,9 +1,8 @@
 <html>
 <head>
 <script language="javaScript">
-var slideCounter=0;
-var counter=0;
-var clipCounter=0;
+
+var counter=-1;
 var startState = false;
 var clipList = ["sounds/clip1Tracer.oga",
 				"sounds/clip2Reaper.mpeg",
@@ -13,8 +12,7 @@ var clipList = ["sounds/clip1Tracer.oga",
 				"sounds/clip6Mercy.oga"];
 				
 				
-var picList = ["images/slideshow/thumbnail.jpg",
-				"images/slideshow/slide1Tracer.jpg",
+var picList = [ "images/slideshow/slide1Tracer.jpg",
 				"images/slideshow/slide2Reaper.jpg",
 				"images/slideshow/slide3Widowmaker.jpg",
 				"images/slideshow/slide4Pharah.jpg",
@@ -26,27 +24,20 @@ var picList = ["images/slideshow/thumbnail.jpg",
 
 function nextSlide()
 { 	
-	slideCounter++;
-	document.getElementById("display").src=picList[slideCounter];
-	document.getElementById("player").src = clipList[clipCounter];
+	counter ++;
+	document.getElementById("display").src=picList[counter];
+	document.getElementById("player").src=clipList[counter];
 	document.getElementById("player").play();
-	clipCounter++;
-	clipCarousel(); slideCarousel();
+	slideCarousel();
+	alert (clipLength.duration);
+	
 }
 
 function slideCarousel()
 {
-	if (slideCounter == picList.length-1)
+	if (counter == picList.length-1)
 	{
-		slideCounter = 0; 
-	}
-}
-
-function clipCarousel()
-{ 
-	if (clipCounter==clipList.length)
-	{ 
-		clipCounter= 0;
+		counter = -1; 
 	}
 }
 
@@ -72,15 +63,15 @@ function autoSlide()
 {
 	if (startState == true)
 	{	
-		slideCounter++;
-		document.getElementById("display").src = picList[slideCounter];
-		document.getElementById("player").src = clipList[clipCounter];
+		counter++;
+		document.getElementById("display").src = picList[counter];
+		document.getElementById("player").src = clipList[counter];
 		document.getElementById("player").play();
-		clipCounter++;
 		slideCarousel();
-		clipCarousel;
-		var clipTime = clipList[counter].duration;
-		timer=setTimeout("autoSlide()", clipTime*1000);
+		
+		//var clipTime = document.getElementById("player").src=clipList[counter].duration;
+		timer=setTimeout("autoSlide()", 2500);
+		//timer = setTimeout("autoSlide()", 2500);
 	}
 	else
 	{	
@@ -89,13 +80,17 @@ function autoSlide()
 }
 
 
-function run1() //test
+function testfunction()
 {
- 
-	var clipTime = clipList[counter].duration;
-	alert (clipTime);
 	nextSlide();
+	var clipTime = document.getElementById("player").src=clipList[counter];
 	
+	//clipTime=Math.floor(clipTime+1)
+	
+}
+
+
+/* 	
 	if (startState == true)
 	{
 		startState = false;
@@ -111,11 +106,32 @@ function run1() //test
 	autoSlide();
 }
 
-/* 
+
 
 var clipTime = document.getElementById("player").src=clipList[counter];
     alert (clipTime);
     clipTime = Math.floor(clipTime+1);
+	
+	
+	
+	
+	// create the video element but don't add it to the page
+var vid = document.createElement('video');
+document.querySelector('#input').addEventListener('change', function() {
+  // create url to use as the src of the video
+  var fileURL = URL.createObjectURL(this.files[0]);
+  vid.src = fileURL;
+  // wait for duration to change from NaN to the actual duration
+  vid.ondurationchange = function() {
+    alert(this.duration);
+  };
+});
+<input type="file" id="input">
+
+
+
+
+
 
 remember to...
 1.make slides more efficient
@@ -136,10 +152,12 @@ remember to...
 <h1> My Slideshow </h1>
 Click <a href="index.html">here</a> to return to my home page.
 <br/><br/>
-<input type="button" value = "Next Picture" onclick="nextPic()"/>
+<input type="button" value = "Next Picture" onclick="nextSlide()"/>
 <br/>
 <br/>
-<input type="button" id="runButton" value="Run Slideshow" onclick="run1()"/>
+<input type="button" id="runButton" value="Run Slideshow" onclick="run()"/>
+<br/><br/>
+<input type="button" value = "Next Picture" onclick="testfunction()"/>
 <br/><br/>
 <image src="images/slideshow/thumbnail.jpg" id="display"/> 
 
