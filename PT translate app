@@ -1,0 +1,140 @@
+<html>
+<header>
+<script language="javaScript">
+// dog,cat,bird,fish/horse,mouse,wolf,fox/snake,sheep,monkey,pig
+
+var animalList=["dog",
+"cat",
+"bird",
+"fish",
+"horse",
+"mouse",
+"wolf",
+"fox",
+"snake",
+"sheep",
+"monkey",
+"pig"]
+
+var frenchList=["sounds/dogfrench.mp3",
+"sounds/catfrench.mp3",
+"sounds/birdfrench.mp3",
+"sounds/fishfrench.mp3",
+"sounds/horsefrench.mp3",
+"sounds/mousefrench.mp3",
+"sounds/wolffrench.mp3",
+"sounds/foxfrench.mp3",
+"sounds/snakefrench.mp3",
+"sounds/sheepfrench.mp3",
+"sounds/monkeyfrench.mp3",
+"sounds/pigfrench.mp3"]
+
+var chineseList=["sounds/dogchinese.mp3",
+"sounds/catchinese.mp3",
+"sounds/birdchinese.mp3",
+"sounds/fishchinese.mp3",
+"sounds/horsechinese.mp3",
+"sounds/mousechinese.mp3",
+"sounds/wolfchinese.mp3",
+"sounds/foxchinese.mp3",
+"sounds/snakechinese.mp3",
+"sounds/sheepchinese.mp3",
+"sounds/monkeychinese.mp3",
+"sounds/pigchinese.mp3"]
+
+var tempList;
+var sound;
+var index;
+var i=-1;
+
+
+function checkLanguange()
+{
+	var cOrF = document.getElementById("french").checked;
+	translater();
+}
+
+
+function translater(french)
+{
+	//tempList;
+	if(i==-1)
+	{
+		if(french = true)
+		{
+			sound = frenchList[translate2(i)];
+			document.getElementById("player").src = sound;
+			document.getElementById("player").play();
+		}
+		else
+		{
+			sound = chineseList[translate2(i)];
+			document.getElementById("player").src = sound;
+		document.getElementById("player").play();
+		}	
+	//alert(sound);
+	}
+	else
+	{
+	alert ("Please select an animal");
+	}
+}
+
+function translate2(index)
+{
+	
+	var animal = animalList[index];
+	alert(animal);
+/*tempList = frenchList;
+sound = tempList[index];
+alert(sound);
+*/
+	i = index;
+	return i;
+
+}
+
+</script>
+</header>
+<body>
+
+<center>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<img src="images/dog.png" width="150" onclick="translate2(0)"/>
+<img src="images/cat.png" width="150" onclick="translate2(1)"/>
+<img src="images/bird.png" width="150" onclick="translate2(2)"/>
+<img src="images/fish.png" width="150" onclick="translate2(3)"/>
+<br/>
+<img src="images/horse.png" width="150" onclick="translate2(4)"/>
+<img src="images/mouse.png" width="150" onclick="translate2(5)"/>
+<img src="images/wolf.png" width="150" onclick="translate2(6)"/>
+<img src="images/fox.png"  width="150"onclick="translate2(7)"/>
+<br/>
+<img src="images/snake.png" width="150" onclick="translate2(8)"/>
+<img src="images/sheep.png" width="150" onclick="translate2(9)"/>
+<img src="images/monkey.png" width="150" onclick="translate2(10)"/>
+<img src="images/pig.png" width="150" onclick="translate2(11)"/>
+
+<br/>
+<br/>
+<br/>
+<div id="3">
+<input type="radio" id="french" name="qType" checked >
+  <label for="french">French</label>
+<input type="radio" id="chinese" name="qType">
+  <label for="chinese">Chinese</label>
+  <br/><br/>
+<input type="button" value="Translate" onclick="checkLanguange()"/>
+</div>
+
+<audio id="player"> </audio>
+
+</center>
+
+
+</body>
+</html>
