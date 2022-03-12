@@ -16,34 +16,33 @@ var animalList=
 "pig"]
 
 var frenchList=
-["PTSounds/dogfrench.mp3",
-"PTSounds/catfrench.mp3",
-"PTSounds/birdfrench.mp3",
-"PTSounds/fishfrench.mp3",
-"PTSounds/horsefrench.mp3",
-"PTSounds/mousefrench.mp3",
-"PTSounds/wolffrench.mp3",
-"PTSounds/foxfrench.mp3",
-"PTSounds/snakefrench.mp3",
-"PTSounds/sheepfrench.mp3",
-"PTSounds/monkeyfrench.mp3",
-"PTSounds/pigfrench.mp3"]
+["sounds/dogFrench.mp3",
+"sounds/catFrench.mp3",
+"sounds/birdFrench.mp3",
+"sounds/fishFrench.mp3",
+"sounds/horseFrench.mp3",
+"sounds/mouseFrench.mp3",
+"sounds/wolfFrench.mp3",
+"sounds/foxFrench.mp3",
+"sounds/snakeFrench.mp3",
+"sounds/sheepFrench.mp3",
+"sounds/monkeyFrench.mp3",
+"sounds/pigFrench.mp3"]
 
 var chineseList=
-["sounds/dog.mp3",
-"sounds/cat.mp3",
-"sounds/bird.mp3",
-"sounds/fish.mp3",
-"sounds/horse.mp3",
-"sounds/mouse.mp3",
-"sounds/wolf.mp3",
-"sounds/fox.mp3",
-"sounds/snake.mp3",
-"sounds/sheep.mp3",
-"sounds/monkey.mp3",
-"sounds/pig.mp3"]
+["sounds/dogChinese.mp3",
+"sounds/catChinese.mp3",
+"sounds/birdChinese.mp3",
+"sounds/fishChinese.mp3",
+"sounds/horseChinese.mp3",
+"sounds/mouseChinese.mp3",
+"sounds/wolfChinese.mp3",
+"sounds/foxChinese.mp3",
+"sounds/snakeChinese.mp3",
+"sounds/sheepChinese.mp3",
+"sounds/monkeyChinese.mp3",
+"sounds/pigChinese.mp3"]
 
-var sound;
 var french = true;
 
 function translater(whichAnimal)
