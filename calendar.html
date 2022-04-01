@@ -1,0 +1,71 @@
+<html>
+<head>
+<script>
+var date = Date();
+
+var weekDay = [ "Monday",
+				"Tuesday",
+				"Wednesday",
+				"Thursday",
+				"Friday",
+				"Sunday",
+				"Saturday"]
+
+
+var counter = 0;
+function displaySelect()
+{
+	var selection = document.getElementById("Month").value;
+	alert(selection);
+}
+
+
+function getWeekDay()
+{
+	var wd = new Date("November 29, 2021 00:00:00");
+    alert(weekDay[wd.getDay()-1]); 
+}
+ 
+</script>
+
+
+</head>
+<body>
+<center>
+<h1>Date Finder</h1>
+<br/><br/>
+<select id="chooseMonth" onchange = displaySelect()>
+	<option>---Choose Month--- </option>
+	<option>January </option>
+	<option>Febuary </option>
+	<option>March </option>
+	<option>April </option>
+	<option>May </option> 
+	<option>June </option>
+	<option>July </option>
+	<option>August </option>
+	<option>September </option>
+	<option>October </option>
+	<option>November </option>
+	<option>December </option>
+	
+</select>
+<br/>
+<br/>
+<select id ="chooseDay" onchange >
+	<option>---Choose Day--- </option>
+	<option>Monday </option>
+	<option>Tuesday </option>
+	<option>Wednesday </option>
+	<option>Thursday </option>
+	<option>Friday </option>
+	<option>Saturday </option>
+	<option>Sunday </option>
+</select>
+<br/><br/>
+<input type ="button" value ="Get Date" onClick="getWeekDay()"/>
+<br/><br/>
+<input type="text" id= "Month"/>
+</center>
+</body>
+</html>
